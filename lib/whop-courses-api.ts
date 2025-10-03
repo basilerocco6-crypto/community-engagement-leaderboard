@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 
 export interface WhopCourse {
   id: string;
@@ -234,7 +234,7 @@ export class WhopCoursesAPI {
    * Sync course data to our local database
    */
   static async syncCoursesToDatabase(): Promise<{ synced: number; errors: number }> {
-    const supabase = createClient();
+    const supabase = getSupabaseClient();
     let synced = 0;
     let errors = 0;
 
@@ -322,7 +322,7 @@ export class WhopCoursesAPI {
    * Sync user progress to our database
    */
   static async syncUserProgress(userId: string): Promise<{ synced: number; errors: number }> {
-    const supabase = createClient();
+    const supabase = getSupabaseClient();
     let synced = 0;
     let errors = 0;
 
@@ -441,7 +441,7 @@ export class WhopCoursesAPI {
 
 // Course-specific engagement tracking
 export class CourseEngagementTracker {
-  private static supabase = createClient();
+  private static supabase = getSupabaseClient();
 
   /**
    * Process course module completion and award points
