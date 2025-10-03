@@ -1,0 +1,27 @@
+# Copy this to .env.local and fill in your actual values
+
+# Whop Configuration
+WHOP_API_KEY=your_whop_api_key_here
+NEXT_PUBLIC_WHOP_APP_ID=your_whop_app_id_here
+NEXT_PUBLIC_WHOP_AGENT_USER_ID=your_whop_agent_user_id_here
+NEXT_PUBLIC_WHOP_COMPANY_ID=your_whop_company_id_here
+
+# OAuth Configuration (if using OAuth flow)
+NEXT_PUBLIC_WHOP_CLIENT_ID=your_whop_client_id_here
+WHOP_CLIENT_SECRET=your_whop_client_secret_here
+
+# App Configuration
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Supabase Configuration
+SUPABASE_URL=your_supabase_project_url_here
+SUPABASE_ANON_KEY=your_supabase_anon_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
+
+# Database Configuration
+DATABASE_URL=your_supabase_database_url_here
+
+# Optional: Supabase Auth Configuration (for client-side usage)
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url_here
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+
