@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { AdminNavigation } from '@/components/AdminNavigation';
 import { AdminOverview } from '@/components/AdminOverview';
 import { PointConfiguration } from '@/components/PointConfiguration';
@@ -197,12 +198,12 @@ function AdminAccessDenied({ error }: { error?: string | null }) {
           {error || 'You need Whop community owner permissions to access the admin dashboard.'}
         </p>
         <div className="space-y-3">
-          <a 
+          <Link 
             href="/"
             className="block w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
           >
             Return to Community
-          </a>
+          </Link>
           <button 
             onClick={() => window.location.reload()}
             className="block w-full px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors"
