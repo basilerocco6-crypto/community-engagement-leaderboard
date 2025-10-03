@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { EngagementTracker } from '@/lib/engagement-core';
-import { AddEngagementPointsRequest } from '@/lib/types/engagement';
+// import { EngagementTracker } from '@/lib/engagement-core';
+// import { AddEngagementPointsRequest } from '@/lib/types/engagement';
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body: Partial<AddEngagementPointsRequest> = await request.json();
+    const body: any = await request.json();
     
     // Get username from cookies or body
     const username = cookieStore.get('username')?.value || body.username || 'Unknown User';
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create the engagement request
-    const engagementRequest: AddEngagementPointsRequest = {
+    const engagementRequest: any = {
       user_id: userId,
       username,
       activity_type: body.activity_type,
@@ -40,7 +40,8 @@ export async function POST(request: NextRequest) {
       course_data: body.course_data
     };
 
-    const result = await EngagementTracker.recordEngagement(engagementRequest);
+    // TODO: Temporarily disabled during deployment
+    const result = { success: false, message: 'API temporarily disabled' };
 
     return NextResponse.json(result);
 
@@ -65,22 +66,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const userEngagement = await EngagementTracker.getUserEngagement(userId);
-
-    if (!userEngagement) {
-      return NextResponse.json(
-        { error: 'User engagement data not found' },
-        { status: 404 }
-      );
-    }
-
-    // Get user's rank
-    const rank = await EngagementTracker.getUserRank(userId);
-
+    // TODO: Temporarily disabled during deployment
     return NextResponse.json({
-      success: true,
-      user_engagement: userEngagement,
-      rank: rank
+              success: false,
+              error: 'API temporarily disabled for deployment',
     });
 
   } catch (error) {
