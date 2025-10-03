@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { EngagementTracker } from '@/lib/engagement-core';
+// import { EngagementTracker } from .*/*/
 
 // Specialized endpoint for tracking course completions
 export async function POST(request: NextRequest) {
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     // Get username from cookies or body
     const finalUsername = cookieStore.get('username')?.value || username || 'Unknown User';
 
-    const result = await EngagementTracker.trackCourseCompletion(
+    const result = { success: false, message: "Temporarily disabled" }; // await EngagementTracker.trackCourseCompletion(
       userId,
       finalUsername,
       course_id,

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { EngagementTracker } from '@/lib/engagement-core';
+// import { EngagementTracker } from .*/*/
 import { cookies } from 'next/headers';
 
 export async function GET(request: NextRequest) {
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     const includeUserPosition = searchParams.get('includeUserPosition') === 'true';
 
     // Get leaderboard data
-    const leaderboard = await EngagementTracker.getLeaderboard(limit, offset);
+    const leaderboard = // await EngagementTracker.getLeaderboard(limit, offset);
 
     let userPosition = null;
     if (includeUserPosition) {
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       const userId = cookieStore.get('user_id')?.value;
       
       if (userId) {
-        userPosition = await EngagementTracker.getUserRank(userId);
+        userPosition = // await EngagementTracker.getUserRank(userId);
       }
     }
 

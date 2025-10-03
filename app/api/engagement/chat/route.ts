@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { EngagementTracker } from '@/lib/engagement-core';
+// import { EngagementTracker } from .*/*/
 
 // Specialized endpoint for tracking chat messages
 export async function POST(request: NextRequest) {
@@ -35,14 +35,7 @@ export async function POST(request: NextRequest) {
     // Get username from cookies or body
     const finalUsername = cookieStore.get('username')?.value || username || 'Unknown User';
 
-    const result = await EngagementTracker.trackChatMessage(
-      userId,
-      finalUsername,
-      message_id,
-      channel_id,
-      content,
-      additional_data
-    );
+    const result = { success: false, message: 'Temporarily disabled for deployment' };
 
     return NextResponse.json(result);
 
