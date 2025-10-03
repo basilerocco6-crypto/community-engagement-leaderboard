@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 import { EngagementTracker } from '@/lib/engagement-core';
 import { RewardSystem } from '@/lib/reward-system';
 import { ActivityType } from '@/lib/types/engagement';
@@ -56,7 +56,7 @@ export interface WhopPurchase {
 }
 
 export class WhopWebhookHandler {
-  private static supabase = createClient();
+  private static supabase = getSupabaseClient();
 
   /**
    * Verify webhook signature from Whop
